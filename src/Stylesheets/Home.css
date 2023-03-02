@@ -1,0 +1,30 @@
+.home{
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0, 0, 0, 0.01
+    )), url('https://img.freepik.com/free-photo/books-arrangement-shelf_23-2149891267.jpg?w=2000&t=st=1677709428~exp=1677710028~hmac=2a934ed4d69dca1af64af9339f0be4b61416d74feee5dd9a2623179b22a4cd9b');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* keeps background image steady during scroll*/
+    height: 100vh;
+    color: whitesmoke;
+    text-align: center;
+    margin: 0;
+    position: relative;
+  }
+  
+
+  .home-container h1{
+    margin-top: 0;
+  }
+
+  /* .home-container{
+    margin-top: 50px
+  } */
+
+  .home-container h3{
+    text-align:justify;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 50%
+  }

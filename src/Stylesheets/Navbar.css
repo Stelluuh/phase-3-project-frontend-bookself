@@ -1,0 +1,27 @@
+nav {
+    background-color: #4444;
+  }
+  
+  nav a {
+    display: inline-block;
+    padding: 0.25rem;
+    margin: 1rem;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: rgb(68, 59, 59);
+    border-bottom: 2px solid #2C3639;
+    transition: 0.1s;
+    border-radius: 10px;
+  }
+  
+  nav a:hover,
+  nav a:active {
+    color: #fff;
+    border: 2px solid #2C3639;
+    background-color: #2C3639;
+  }
+  
+  nav a.active {
+    background-color:rgba(255, 255, 255, 0.318);
+    color: #2C3639;
+  }
