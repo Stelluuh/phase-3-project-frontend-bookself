@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Shelf = () => {
+const Bookshelf = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Shelf = () => {
   )
 }
 
-export default Shelf
+export default Bookshelf
