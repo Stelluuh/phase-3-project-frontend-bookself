@@ -9,8 +9,10 @@ const App = () => {
   useEffect(() => {
     fetch('http://localhost:9292/bookshelfs')
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => setBookshelves(data))
   }, [])
+
+  console.log({bookshelves})
 
 
 
