@@ -9,7 +9,7 @@ const BookshelfForm = ({ onAddLocation }) => {
             location: location
         }
 
-        fetch('http://localhost:9292/bookshelfs', {
+        fetch('http://localhost:9292/bookshelves', {
             method: "POST",
             headers: {
                 "Content-Type" : "application/json"
@@ -24,7 +24,7 @@ const BookshelfForm = ({ onAddLocation }) => {
     }
   return (
     <form onSubmit={handleSubmit}>
-        <label>New Location:</label>
+        <label>New Location: </label>
         <input 
             type="text"
             value={location}

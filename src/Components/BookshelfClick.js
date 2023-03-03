@@ -1,15 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Books from './Bookshelf'
 
 
 
-const BookshelLocation = ({ bookshelf }) => {
+const BookshelfClick = ({ bookshelf }) => {
   // console.log(bookshelf.books)
 
   return (
     <div>
-      <Link to={`/bookshelfs/${bookshelf.id}`}>
+      <Link to={`/bookshelves/${bookshelf.id}`}>
         <li>
           { bookshelf.location }
         </li>
@@ -20,4 +19,4 @@ const BookshelLocation = ({ bookshelf }) => {
   )
 }
 
-export default BookshelLocation
+export default BookshelfClick

@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import BookshelfLocation from './BookshelfLocation'
+import React from 'react'
+import BookshelfClick from './BookshelfClick'
 import BookshelfForm from './BookshelfForm'
 
-const Bookshelves = () => {
-    const [bookshelves, setBookshelves] = useState([])
+const Bookshelves = ({ bookshelves, setBookshelves }) => {
+   
 
-    useEffect(() => {
-      fetch('http://localhost:9292/bookshelfs')
-        .then(response => response.json())
-        .then(data => setBookshelves(data))
-    }, [])
-
-    const allBookshelves = bookshelves.map(bookshelf => (
-        <BookshelfLocation 
+    const renderBookshelves = bookshelves.map(bookshelf => (
+        // console.log({bookshelf})
+        <BookshelfClick 
             key={bookshelf.id} 
             bookshelf={bookshelf}
         />
@@ -23,13 +18,13 @@ const Bookshelves = () => {
   return (
     <div>
       <h1>Bookshelf Locations:</h1>
-        {allBookshelves}  
+        {renderBookshelves}  
         <br/>
         <hr/>
-        <h3>Add new Reader</h3>
+        <h3>Add a new bookshelf location:</h3>
         <BookshelfForm 
           onAddLocation = {handleAddBookshelves}
-          /> 
+        /> 
     </div>
   )
 }

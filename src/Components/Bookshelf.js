@@ -1,24 +1,33 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
+import Book from './Book'
 
-const Bookshelf = () => {
-  const [bookshelf, setBookshelf] = useState({
-    books: []
-  })
-  const params = useParams()
+const Bookshelf = ({ bookshelves }) => {
+    // console.log(bookshelves)
+    const params = useParams()    
+    const bookshelf = bookshelves.find(shelf => shelf.id == params.id)
+    console.log(bookshelf)
 
-  useEffect(() => {
-    fetch(`http://localhost:9292/books/${params.id}`)
-      .then(response => response.json())
-      .then(data => setBookshelf(data))
-  }, [])
-
-  console.log(bookshelf)
-  console.log(params)
+    
 
   return (
-    <div>
+    <div className="bookshelf">
       <h3>Hello from bookshelf!</h3>
+      { bookshelf.location }
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Read: Y/N</th>
+            <th>Reader</th>
+          </tr>
+        </thead>
+        <tbody>
+          <Book bookshelf={bookshelf} />
+        </tbody>
+      </table>
     </div>
   )
 }
