@@ -1,3 +1,9 @@
+
+
+
+# RESOURCES
+1. useParams for React-Router-Dom v6: https://refine.dev/blog/react-router-useparams/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

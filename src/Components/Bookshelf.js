@@ -8,12 +8,13 @@ const Bookshelf = () => {
   const params = useParams()
 
   useEffect(() => {
-    fetch(`http://localhost:9292/books/:${params.id}`)
+    fetch(`http://localhost:9292/books/${params.id}`)
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => setBookshelf(data))
   }, [])
 
-  // console.log(bookshelf.books)
+  console.log(bookshelf)
+  console.log(params)
 
   return (
     <div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import BookshelfLocation from './BookshelfLocation'
+import BookshelfForm from './BookshelfForm'
 
 const Bookshelves = () => {
     const [bookshelves, setBookshelves] = useState([])
@@ -17,10 +18,18 @@ const Bookshelves = () => {
         />
     ))
 
+    const handleAddBookshelves = (newBookshelf) => setBookshelves([...bookshelves, newBookshelf])
+
   return (
     <div>
       <h1>Bookshelf Locations:</h1>
-        {allBookshelves}   
+        {allBookshelves}  
+        <br/>
+        <hr/>
+        <h3>Add new Reader</h3>
+        <BookshelfForm 
+          onAddReader = {handleAddBookshelves}
+          /> 
     </div>
   )
 }
