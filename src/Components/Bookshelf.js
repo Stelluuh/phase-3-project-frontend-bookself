@@ -1,15 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Book from './Book'
+import BookForm from './BookForm'
+import '../Stylesheets/Bookshelf.css'
 
-const Bookshelf = ({ bookshelves }) => {
-    // console.log(bookshelves)
+const Bookshelf = ({ bookshelves, onAddBook }) => {
     const params = useParams()    
-    const bookshelf = bookshelves.find(shelf => shelf.id == params.id)
-    console.log(bookshelf)
-
+    const bookshelf = bookshelves.find(shelf => shelf.id === parseInt(params.id))
+    const bookList = bookshelf.books
     
-
   return (
     <div className="bookshelf">
       <h3>Hello from bookshelf!</h3>
@@ -25,9 +24,10 @@ const Bookshelf = ({ bookshelves }) => {
           </tr>
         </thead>
         <tbody>
-          <Book bookshelf={bookshelf} />
+          {bookList.map((book) => <Book key={book.id} book={book}/>)}
         </tbody>
       </table>
+      <BookForm onAddBook={onAddBook} bookshelfId={bookshelf.id}/>
     </div>
   )
 }

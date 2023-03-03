@@ -1,5 +1,15 @@
+
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid rgb(164, 157, 164);
+}
+
 th {
     text-align: center;
+    width: 30%
   }
 
   td {
@@ -8,5 +18,3 @@ th {
     border: 1px solid #ddd;
     padding: 8px;
   }
-
-  

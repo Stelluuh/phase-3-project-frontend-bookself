@@ -16,13 +16,27 @@ const App = () => {
         .then(data => setBookshelves(data))
     }, [])
 
+  const onAddBook = (newbook) => {
+    const updatedBookshelf = bookshelves.map(bookshelf => {
+      if (bookshelf.id === newbook.bookshelf_id) {
+        return {
+          ...bookshelf, 
+          books: [...bookshelf.books, newbook]
+        }
+      } else {
+       return bookshelf
+      }
+    })
+    setBookshelves(updatedBookshelf)
+  }  
+
 
   return (
     <Router>
       <NavBar />
       <Routes>
         <Route exact path="/bookshelves" element={<Bookshelves bookshelves={bookshelves} setBookshelves={setBookshelves} />}/>
-        <Route path="/bookshelves/:id" element={<Bookshelf bookshelves={bookshelves}/>}/>
+        <Route path="/bookshelves/:id" element={<Bookshelf bookshelves={bookshelves} onAddBook={onAddBook}/>}/>
         <Route exact path="/" element={<Home />}/>
       </Routes>
     </Router>
