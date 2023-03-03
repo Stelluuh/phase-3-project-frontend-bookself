@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const BookshelfForm = () => {
+const BookshelfForm = ({ onAddLocation }) => {
     const [location, setLocation] = useState('')
 
     const handleSubmit = (e) => {
@@ -17,7 +17,10 @@ const BookshelfForm = () => {
             body: JSON.stringify(newLocation)
         })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+            onAddLocation(data)
+            setLocation('')
+        })
     }
   return (
     <form onSubmit={handleSubmit}>

@@ -28,7 +28,7 @@ const Bookshelves = () => {
         <hr/>
         <h3>Add new Reader</h3>
         <BookshelfForm 
-          onAddReader = {handleAddBookshelves}
+          onAddLocation = {handleAddBookshelves}
           /> 
     </div>
   )
