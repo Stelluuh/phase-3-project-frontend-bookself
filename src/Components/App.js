@@ -34,12 +34,13 @@ const App = () => {
 
   const onDeleteBook = (deletedBook) => {
     const updatedBookshelf = bookshelves.map(bookshelf => {
-      const bookList = bookshelf.books
       if (bookshelf.id === deletedBook.bookshelf_id) {
         return {
           ...bookshelf,
-          books: bookList.filter(book => book.id !== deletedBook.id)
+          books: [...bookshelf.books.filter(book => book.id !== deletedBook.id)]
         }
+      } else {
+        return bookshelf
       }
     })
     setBookshelves(updatedBookshelf)
