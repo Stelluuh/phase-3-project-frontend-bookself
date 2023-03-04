@@ -3,6 +3,7 @@
 
 # RESOURCES
 1. useParams for React-Router-Dom v6: https://refine.dev/blog/react-router-useparams/
+2. Creating editable items in React with Sinatra backend: https://medium.com/@alessandrahagarty/creating-editable-forms-in-react-with-sinatra-backend-5ccf50d06a53
 
 # Getting Started with Create React App
 
