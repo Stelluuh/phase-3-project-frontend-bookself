@@ -9,7 +9,7 @@ const BookForm = ({ onAddBook, bookshelfId }) => {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      const newItem = {
+      const newBook = {
         title,
         author,
         genre,
@@ -23,7 +23,7 @@ const BookForm = ({ onAddBook, bookshelfId }) => {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(newItem)
+        body: JSON.stringify(newBook)
       })
       .then(response => response.json())
       .then(newBook => {

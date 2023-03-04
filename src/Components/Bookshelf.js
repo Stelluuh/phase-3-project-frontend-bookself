@@ -4,11 +4,14 @@ import Book from './Book'
 import BookForm from './BookForm'
 import '../Stylesheets/Bookshelf.css'
 
-const Bookshelf = ({ bookshelves, onAddBook }) => {
+const Bookshelf = ({ bookshelves, onAddBook, onDeleteBook }) => {
+  // const [books, setBooks] = useState([])
+
     const params = useParams()    
     const bookshelf = bookshelves.find(shelf => shelf.id === parseInt(params.id))
     const bookList = bookshelf.books
-    
+
+
   return (
     <div className="bookshelf">
       <h3>Hello from bookshelf!</h3>
@@ -25,7 +28,7 @@ const Bookshelf = ({ bookshelves, onAddBook }) => {
           </tr>
         </thead>
         <tbody>
-          {bookList.map((book) => <Book key={book.id} book={book}/>)}
+          {bookList.map((book) => <Book key={book.id} book={book} onDeleteBook={onDeleteBook}/>)}
         </tbody>
       </table>
       <BookForm onAddBook={onAddBook} bookshelfId={bookshelf.id}/>

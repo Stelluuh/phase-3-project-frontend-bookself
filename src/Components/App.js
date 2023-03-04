@@ -16,6 +16,8 @@ const App = () => {
         .then(data => setBookshelves(data))
     }, [])
 
+    // console.log(bookshelves)
+
   const onAddBook = (newbook) => {
     const updatedBookshelf = bookshelves.map(bookshelf => {
       if (bookshelf.id === newbook.bookshelf_id) {
@@ -30,14 +32,43 @@ const App = () => {
     setBookshelves(updatedBookshelf)
   }  
 
+  const onDeleteBook = (deletedBook) => {
+    const updatedBookshelf = bookshelves.map(bookshelf => {
+      const bookList = bookshelf.books
+      if (bookshelf.id === deletedBook.bookshelf_id) {
+        return {
+          ...bookshelf,
+          books: bookList.filter(book => book.id !== deletedBook.id)
+        }
+      }
+    })
+    setBookshelves(updatedBookshelf)
+ }
+
 
   return (
     <Router>
       <NavBar />
       <Routes>
-        <Route exact path="/bookshelves" element={<Bookshelves bookshelves={bookshelves} setBookshelves={setBookshelves} />}/>
-        <Route path="/bookshelves/:id" element={<Bookshelf bookshelves={bookshelves} onAddBook={onAddBook}/>}/>
+        
+        <Route exact path="/bookshelves" element={
+          <Bookshelves 
+            bookshelves={bookshelves} 
+            setBookshelves={setBookshelves} 
+          />
+        }/>
+
+        <Route path="/bookshelves/:id" element={
+          <Bookshelf 
+            bookshelves={bookshelves} 
+            setBookshelves={setBookshelves} 
+            onAddBook={onAddBook}
+            onDeleteBook={onDeleteBook}
+          />
+        }/>
+
         <Route exact path="/" element={<Home />}/>
+
       </Routes>
     </Router>
   );

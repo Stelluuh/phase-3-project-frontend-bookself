@@ -1,7 +1,16 @@
 import React from 'react'
 
-const Book = ({ book }) => {
-const {title, author, genre, read, reader} = book
+const Book = ({ book, onDeleteBook }) => {
+  const {title, author, genre, read, reader} = book
+
+  const handleDeleteButton = () => {
+    fetch(`http://localhost:9292/books/${book.id}`, {
+      method: "DELETE",
+    })
+      .then(response => response.json())
+      .then(() => onDeleteBook(book))
+  }
+  
 
   return (
     <tr>  
@@ -12,7 +21,7 @@ const {title, author, genre, read, reader} = book
       <td>{reader}</td>
       <td>
         <button className="btn1" type="button" >Edit</button>
-        <button className="btn2" type="button" >Delete</button>
+        <button className="btn2" type="button" onClick={handleDeleteButton}>Delete</button>
       </td>
     </tr>
   )
