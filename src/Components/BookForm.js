@@ -6,8 +6,7 @@ const BookForm = ({ onAddBook, bookshelfId }) => {
     const [genre, setGenre] = useState('')
     const [read, setRead] = useState('No')
     const [reader, setReader] = useState('')
-    // const history = useHistory()
-  // 
+
     const handleSubmit = (e) => {
       e.preventDefault();
       const newItem = {
@@ -65,14 +64,7 @@ const BookForm = ({ onAddBook, bookshelfId }) => {
               onChange={e => setGenre(e.target.value)}
   
             />
-            <br/>
-            {/* <label>Location:</label>
-            <input
-              type="text"
-              value={location}
-              onChange={e => setLocation(e.target.value)}
-  
-            /> */}
+    
             <br/>
             <label htmlFor="read">Read?: </label>
             <select

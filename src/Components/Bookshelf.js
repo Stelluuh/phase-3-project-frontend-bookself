@@ -21,6 +21,7 @@ const Bookshelf = ({ bookshelves, onAddBook }) => {
             <th>Genre</th>
             <th>Read: Y/N</th>
             <th>Reader</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
