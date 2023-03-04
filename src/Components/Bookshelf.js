@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 import Book from './Book'
 import BookForm from './BookForm'
 import '../Stylesheets/Bookshelf.css'
 
 const Bookshelf = ({ bookshelves, onAddBook, onDeleteBook }) => {
-  // const [books, setBooks] = useState([])
 
-    const params = useParams()    
-    const bookshelf = bookshelves.find(shelf => shelf.id === parseInt(params.id))
-    const bookList = bookshelf.books
+  const params = useParams()    
+  const bookshelf = bookshelves.find(shelf => shelf.id === parseInt(params.id))
+  const bookList = bookshelf.books
 
 
   return (
