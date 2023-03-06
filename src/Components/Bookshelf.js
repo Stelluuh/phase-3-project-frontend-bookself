@@ -4,7 +4,7 @@ import Book from './Book'
 import BookForm from './BookForm'
 import '../Stylesheets/Bookshelf.css'
 
-const Bookshelf = ({ bookshelves, onAddBook, onDeleteBook }) => {
+const Bookshelf = ({ bookshelves, onAddBook, onDeleteBook, onEditRead }) => {
 
   const params = useParams()    
   const bookshelf = bookshelves.find(shelf => shelf.id === parseInt(params.id))
@@ -27,7 +27,7 @@ const Bookshelf = ({ bookshelves, onAddBook, onDeleteBook }) => {
           </tr>
         </thead>
         <tbody>
-          {bookList.map((book) => <Book key={book.id} book={book} onDeleteBook={onDeleteBook}/>)}
+          {bookList.map((book) => <Book key={book.id} book={book} onDeleteBook={onDeleteBook} onEditRead={onEditRead}/>)}
         </tbody>
       </table>
       <BookForm onAddBook={onAddBook} bookshelfId={bookshelf.id}/>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import EditBookForm from './EditBookForm'
 
-const Book = ({ book, onDeleteBook }) => {
+const Book = ({ book, onDeleteBook, onEditRead }) => {
   const [isEditing, setIsEditing] = useState(false)
 
   const {id, title, author, genre, read, reader} = book
@@ -14,14 +14,16 @@ const Book = ({ book, onDeleteBook }) => {
       .then(() => onDeleteBook(book))
   }
 
-  const handleEditButton = () => {
-    setIsEditing(() => !isEditing)
+  const handleEditButton = (updatedText) => {
+    setIsEditing(() => !isEditing);
+    onEditRead(updatedText)
+    
   }
   
 
   return (
     <div>
-      {isEditing ? <EditBookForm read={read} id={id}/> : (
+      {isEditing ? <EditBookForm read={read} id={id} onEditRead={handleEditButton}/> : (
         <tr>  
           <td>{title}</td>
           <td>{author}</td> 

@@ -32,7 +32,7 @@ const App = () => {
     setBookshelves(updatedBookshelf)
   }  
 
-  const onDeleteBook = (deletedBook) => {
+  const handleDeleteBook = (deletedBook) => {
     const updatedBookshelf = bookshelves.map(bookshelf => {
       if (bookshelf.id === deletedBook.bookshelf_id) {
         return {
@@ -46,6 +46,16 @@ const App = () => {
     setBookshelves(updatedBookshelf)
  }
 
+  const handleEditRead = (updatedText) => {
+    const updatedBookshelf = bookshelves.map(bookshelf => {
+      if (bookshelf.id === updatedText.bookshelf_id) {
+        return updatedText
+      } else {
+        return bookshelf
+      }
+    })
+ }
+
 
   return (
     <Router>
@@ -55,7 +65,7 @@ const App = () => {
         <Route exact path="/bookshelves" element={
           <Bookshelves 
             bookshelves={bookshelves} 
-            setBookshelves={setBookshelves} 
+            setBookshelves={setBookshelves}
           />
         }/>
 
@@ -64,7 +74,8 @@ const App = () => {
             bookshelves={bookshelves} 
             setBookshelves={setBookshelves} 
             onAddBook={onAddBook}
-            onDeleteBook={onDeleteBook}
+            onDeleteBook={handleDeleteBook}
+            onEditRead={handleEditRead}
           />
         }/>
 

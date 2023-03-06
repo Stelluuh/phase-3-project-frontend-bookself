@@ -1,27 +1,37 @@
 import React, { useState } from 'react'
 
-const EditBookForm = ({ read }) => {
-    const [isRead, setIsRead] = useState(read)
+const EditBookForm = ({ read, id, onEditRead }) => {
+    const [updatedRead, setUpdatedRead] = useState(read)
 
-    // const handleEditButton = (e) => {
-    //     e.preventDefault
-    //     fetch(`http://localhost:9292/books/${book.id}`, { 
-    //       method: "PATCH",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify({
-    //         read: read
-    //       }),
-    //     })
-    //       .then((r) => r.json())
-    //       .then(() => console.log('edit me!'));
-    //   }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        
+        fetch(`http://localhost:9292/books/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify({
+                read: updatedRead,
+            }),
+        }, [])
+            .then(response => response.json())
+            .then(data => onEditRead(data))
+    }
+
 
   return (
-    <div>
-      <h1>BookForm</h1>
-    </div>
+    <form onSubmit={handleSubmit}>
+        <label>read: </label>
+                <input 
+                    type="text"
+                    name="read"
+                    value={updatedRead}
+                    onChange={(e) => setUpdatedRead(e.target.value)}
+                />
+                <input type="submit" value="save" />
+    </form>
   )
 }
 
