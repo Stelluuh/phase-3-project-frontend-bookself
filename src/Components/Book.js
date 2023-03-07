@@ -21,9 +21,10 @@ const Book = ({ book, onDeleteBook, onEditRead }) => {
   }
 
   return (
-    <div>
-      {isEditing ? <EditBookForm book={book} handleEditRead={handleEditButton} setIsEditing={setIsEditing} isEditing={isEditing}/> : (
-        <tr>  
+    <>
+      {isEditing ? (
+      <EditBookForm book={book} handleEditRead={handleEditButton} setIsEditing={setIsEditing} isEditing={isEditing}/>) : (
+        <tr key={id}>  
           <td>{title}</td>
           <td>{author}</td> 
           <td>{genre}</td>
@@ -35,8 +36,7 @@ const Book = ({ book, onDeleteBook, onEditRead }) => {
           </td>
         </tr>
       )}
-    </div>
-    
+    </>
   )
 }
 

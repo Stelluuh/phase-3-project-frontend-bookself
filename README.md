@@ -88,3 +88,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 3. useParams for React-Router-Dom v6: https://refine.dev/blog/react-router-useparams/
 
 4. Creating editable items in React with Sinatra backend: https://medium.com/@alessandrahagarty/creating-editable-forms-in-react-with-sinatra-backend-5ccf50d06a53
+
+5. Pushing Data into your Table - https://dev.to/fromwentzitcame/working-with-tables-in-react-how-to-render-and-edit-fetched-data-5fl5

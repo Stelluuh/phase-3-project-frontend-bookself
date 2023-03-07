@@ -18,8 +18,7 @@ const Bookshelf = ({ bookshelves, onAddBook, onDeleteBook, onEditRead }) => {
   return (
     <div>
       <h3>{ currentBookshelf.location }</h3>
-      
-      <table>
+       <table>
         <thead>
           <tr>
             <th>Title</th>
@@ -31,10 +30,15 @@ const Bookshelf = ({ bookshelves, onAddBook, onDeleteBook, onEditRead }) => {
           </tr>
         </thead>
         <tbody>
-          {bookList.map((book) => <Book key={book.id} book={book} onDeleteBook={onDeleteBook} onEditRead={onEditRead}/>)}
+            {bookList.map((book) => 
+              <Book 
+                key={book.id} 
+                book={book} 
+                onDeleteBook={onDeleteBook} 
+                onEditRead={onEditRead}
+              />)}
         </tbody>
-      </table>
-
+      </table> 
       <BookForm onAddBook={onAddBook} bookshelfId={currentBookshelf.id}/>
     </div>
   )
