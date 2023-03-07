@@ -7,14 +7,18 @@ import '../Stylesheets/Bookshelf.css'
 const Bookshelf = ({ bookshelves, onAddBook, onDeleteBook, onEditRead }) => {
 
   const params = useParams()    
-  const bookshelf = bookshelves.find(shelf => shelf.id === parseInt(params.id))
-  const bookList = bookshelf.books
+  const currentBookshelf = bookshelves.find(shelf => shelf.id === parseInt(params.id))
 
+  if(!currentBookshelf) {
+    return <h1>Loading</h1>
+  }
+  const bookList = currentBookshelf.books
 
+  
   return (
-    <div className="bookshelf">
-      <h3>Hello from bookshelf!</h3>
-      { bookshelf.location }
+    <div>
+      <h3>{ currentBookshelf.location }</h3>
+      
       <table>
         <thead>
           <tr>
@@ -23,14 +27,15 @@ const Bookshelf = ({ bookshelves, onAddBook, onDeleteBook, onEditRead }) => {
             <th>Genre</th>
             <th>Read: Y/N</th>
             <th>Reader</th>
-            <th></th>
+            <th>edit/delete:</th>
           </tr>
         </thead>
         <tbody>
           {bookList.map((book) => <Book key={book.id} book={book} onDeleteBook={onDeleteBook} onEditRead={onEditRead}/>)}
         </tbody>
       </table>
-      <BookForm onAddBook={onAddBook} bookshelfId={bookshelf.id}/>
+
+      <BookForm onAddBook={onAddBook} bookshelfId={currentBookshelf.id}/>
     </div>
   )
 }

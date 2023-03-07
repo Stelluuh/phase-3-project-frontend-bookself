@@ -1,9 +1,12 @@
+# Instructions
+1. Fork and clone this project
+2. Locate the project in your terminal
+3. Open the project in your preferred source-code editor (ex: VS Code)
+4. Open the my-app-frontend file in your terminal and run: npm install
+    (note: this project was created using React V6. If you run into issues, make sure to install the appropriate package, run npm install react-router-dom@6)
+5. Under the same file, run the json-server: npm run server
+6. Run React server: npm start
 
-
-
-# RESOURCES
-1. useParams for React-Router-Dom v6: https://refine.dev/blog/react-router-useparams/
-2. Creating editable items in React with Sinatra backend: https://medium.com/@alessandrahagarty/creating-editable-forms-in-react-with-sinatra-backend-5ccf50d06a53
 
 # Getting Started with Create React App
 
@@ -75,3 +78,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# Resources
+1. Background images: https://www.freepik.com/free-photo/books-arrangement-shelf_34241204.htm#page=2&query=bookshelf&position=49&from_view=search&track=sph
+
+2. W3Schools: https://www.w3schools.com/css/default.asp
+
+3. useParams for React-Router-Dom v6: https://refine.dev/blog/react-router-useparams/
+
+4. Creating editable items in React with Sinatra backend: https://medium.com/@alessandrahagarty/creating-editable-forms-in-react-with-sinatra-backend-5ccf50d06a53

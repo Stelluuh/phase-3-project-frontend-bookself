@@ -1,34 +1,39 @@
 import React, { useState } from 'react'
 
-const EditBookForm = ({ read, id, onEditRead }) => {
-    const [updatedRead, setUpdatedRead] = useState(read)
+const EditBookForm = ({ book, handleEditRead, isEditing, setIsEditing }) => {
+    const [updatedRead, setUpdatedRead] = useState({...book})
+    // console.log(updatedRead)
 
+    const handleChange = (e) => {
+        setUpdatedRead({...book,
+            [e.target.name]: e.target.value
+        })
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        
-        fetch(`http://localhost:9292/books/${id}`, {
+        setIsEditing(() => !isEditing)
+        fetch(`http://localhost:9292/books/${book.id}`, {
             method: "PATCH",
             headers: {
-                "Content-type": "application/json",
+                "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                read: updatedRead,
-            }),
-        }, [])
+            body: JSON.stringify(updatedRead)
+        })
             .then(response => response.json())
-            .then(data => onEditRead(data))
+            .then((data)=> handleEditRead(data))
     }
 
 
   return (
     <form onSubmit={handleSubmit}>
+        
         <label>read: </label>
                 <input 
                     type="text"
                     name="read"
-                    value={updatedRead}
-                    onChange={(e) => setUpdatedRead(e.target.value)}
+                    value={updatedRead.read}
+                    onChange={handleChange}
                 />
                 <input type="submit" value="save" />
     </form>

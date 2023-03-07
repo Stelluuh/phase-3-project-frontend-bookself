@@ -46,15 +46,34 @@ const App = () => {
     setBookshelves(updatedBookshelf)
  }
 
-  const handleEditRead = (updatedText) => {
-    const updatedBookshelf = bookshelves.map(bookshelf => {
-      if (bookshelf.id === updatedText.bookshelf_id) {
-        return updatedText
+  // const handleEditRead = (updatedTextObj) => {
+  //   const updatedBookshelf = bookshelves.map(bookshelf => {
+  //     if (bookshelf.id === updatedTextObj.bookshelf_id) {
+  //       return {
+  //         ...bookshelf, 
+  //         books: [...bookshelf,
+  //           updatedTextObj
+  //         ]
+  //       }
+  //     } else {
+  //       return bookshelf
+  //     }
+  //   })
+  //   setBookshelves(updatedBookshelf)
+  // }
+
+
+  const handleEditRead = (updatedTextObj) => {
+    const newBookshelves = bookshelves.map(bookshelf => {
+      if (bookshelf.books.map(book => book.id).includes(updatedTextObj.bookshelf_id)) {
+          const newBookshelfBooks = bookshelf.books.map(book => book.id === parseInt(updatedTextObj.bookshelf_id) ? updatedTextObj : book)
+          return {...bookshelf, books: newBookshelfBooks}
       } else {
-        return bookshelf
+          return bookshelf
       }
-    })
- }
+  })
+    setBookshelves(newBookshelves)
+  }
 
 
   return (
@@ -62,7 +81,7 @@ const App = () => {
       <NavBar />
       <Routes>
         
-        <Route exact path="/bookshelves" element={
+        <Route path="/bookshelves" element={
           <Bookshelves 
             bookshelves={bookshelves} 
             setBookshelves={setBookshelves}
@@ -79,7 +98,7 @@ const App = () => {
           />
         }/>
 
-        <Route exact path="/" element={<Home />}/>
+        <Route path="/" element={<Home />}/>
 
       </Routes>
     </Router>
