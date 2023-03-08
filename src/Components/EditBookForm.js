@@ -6,7 +6,7 @@ const EditBookForm = ({ book, handleEditRead, isEditing, setIsEditing }) => {
 
     const handleChange = (e) => {
         setUpdatedRead({...book,
-            [e.target.name]: e.target.value
+            read: e.target.value
         })
     }
 
