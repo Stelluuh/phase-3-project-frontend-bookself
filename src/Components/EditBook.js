@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const EditBookForm = ({ book, handleEditRead, isEditing, setIsEditing }) => {
     const [updatedRead, setUpdatedRead] = useState({...book})
     // console.log(updatedRead)
-    console.log(book)
+    // console.log(book)
 
     const handleChange = (e) => {
         setUpdatedRead({...updatedRead,

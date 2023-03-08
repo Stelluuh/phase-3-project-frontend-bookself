@@ -46,27 +46,10 @@ const App = () => {
     setBookshelves(updatedBookshelf)
  }
 
-  // const handleEditRead = (updatedTextObj) => {
-  //   const updatedBookshelf = bookshelves.map(bookshelf => {
-  //     if (bookshelf.id === updatedTextObj.bookshelf_id) {
-  //       return {
-  //         ...bookshelf, 
-  //         books: [...bookshelf,
-  //           updatedTextObj
-  //         ]
-  //       }
-  //     } else {
-  //       return bookshelf
-  //     }
-  //   })
-  //   setBookshelves(updatedBookshelf)
-  // }
-
-
   const handleEditRead = (updatedTextObj) => {
     const newBookshelves = bookshelves.map(bookshelf => {
-      if (bookshelf.books.map(book => book.id).includes(updatedTextObj.bookshelf_id)) {
-          const newBookshelfBooks = bookshelf.books.map(book => book.id === parseInt(updatedTextObj.bookshelf_id) ? updatedTextObj : book)
+      if (bookshelf.books.map(book => book.id).includes(updatedTextObj.id)) {
+          const newBookshelfBooks = bookshelf.books.map(book => book.id === (updatedTextObj.id) ? updatedTextObj : book)
           return {...bookshelf, books: newBookshelfBooks}
       } else {
           return bookshelf
