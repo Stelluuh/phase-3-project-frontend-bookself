@@ -18,10 +18,7 @@ const Bookshelf = ({ bookshelves, onAddBook, onDeleteBook, onEditRead }) => {
   return (
     <div>
       <h3>{ currentBookshelf.location }</h3>
-      
       {bookList.map((book) => <Book key={book.id} book={book} onDeleteBook={onDeleteBook} onEditRead={onEditRead}/>)}
-      
-
       <BookForm onAddBook={onAddBook} bookshelfId={currentBookshelf.id}/>
     </div>
   )

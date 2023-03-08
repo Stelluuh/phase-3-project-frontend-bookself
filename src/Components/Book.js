@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import EditBookForm from './EditBookForm'
+import EditBook from './EditBook'
 import '../Stylesheets/Book.css'
 
 const Book = ({ book, onDeleteBook, onEditRead }) => {
   const [isEditing, setIsEditing] = useState(false)
-  const {id, title, author, genre, read, reader} = book
+  const {title, author, genre, read, reader} = book
 
   const handleDeleteButton = () => {
     fetch(`http://localhost:9292/books/${book.id}`, {
@@ -23,7 +23,7 @@ const Book = ({ book, onDeleteBook, onEditRead }) => {
   return (
     <div>
       {isEditing ? (
-      <EditBookForm book={book} handleEditRead={handleEditButton} setIsEditing={setIsEditing} isEditing={isEditing}/>) : (
+      <EditBook book={book} handleEditRead={handleEditButton} setIsEditing={setIsEditing} isEditing={isEditing}/>) : (
         // <tr key={id}>  
         //   <td><b>Title: </b>{title}</ul>
         //   <td><b>Author: </b>{author}</ul> 
@@ -44,19 +44,8 @@ const Book = ({ book, onDeleteBook, onEditRead }) => {
           <ul>
             <button className="btn1" type="button" onClick={handleEditButton} >Edit</button>
             <button className="btn2" type="button" onClick={handleDeleteButton}>Delete</button>
-
           </ul>
-        </div>
-        // <div>
-        //   <li> <b>Title: </b>{title} </li>,
-        //   <li><b>Author: </b>{author}</li>,
-        //   <li><b>Genre: </b>{genre}</li>,
-        //   <li><b>Read: </b>{read}</li>,
-        //   <li><b>Reader: </b>{reader}</li>,
-        //   <li><button className="btn1" type="button" onClick={handleEditButton} >Edit</button></li>,
-        //   <li><button className="btn2" type="button" onClick={handleDeleteButton}>Delete</button></li>
-        // </div>
-        
+        </div>        
       )}
     </div>
     
