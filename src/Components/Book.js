@@ -24,17 +24,6 @@ const Book = ({ book, onDeleteBook, onEditRead }) => {
     <div>
       {isEditing ? (
       <EditBook book={book} handleEditRead={handleEditButton} setIsEditing={setIsEditing} isEditing={isEditing}/>) : (
-        // <tr key={id}>  
-        //   <td><b>Title: </b>{title}</ul>
-        //   <td><b>Author: </b>{author}</ul> 
-        //   <td><b>Genre: </b>{genre}</ul>
-        //   <td><b>Read: </b>{read}</ul>
-        //   <td><b>Reader: </b>{reader}</ul>
-        //   <td>
-        //     <button className="btn1" type="button" onClick={handleEditButton} >Edit</button>
-        //     <button className="btn2" type="button" onClick={handleDeleteButton}>Delete</button>
-        //   </ul>
-        // </tr>
         <div className='bookcard'>  
           <ul><b>Title: </b>{title}</ul>
           <ul><b>Author: </b>{author}</ul> 

@@ -8,7 +8,7 @@ import '../App.css';
 
 const App = () => {
 
-  const [bookshelves, setBookshelves] = useState([])
+  const [bookshelves, setBookshelves] = useState([{}])
 
     useEffect(() => {
       fetch('http://localhost:9292/bookshelves')

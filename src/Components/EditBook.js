@@ -3,10 +3,11 @@ import React, { useState } from 'react'
 const EditBookForm = ({ book, handleEditRead, isEditing, setIsEditing }) => {
     const [updatedRead, setUpdatedRead] = useState({...book})
     // console.log(updatedRead)
+    console.log(book)
 
     const handleChange = (e) => {
-        setUpdatedRead({...book,
-            read: e.target.value
+        setUpdatedRead({...updatedRead,
+            [e.target.name]: e.target.value
         })
     }
 
@@ -32,24 +33,27 @@ const EditBookForm = ({ book, handleEditRead, isEditing, setIsEditing }) => {
             <input
                 type="text"
                 name="title"
-                value={book.title}
-                disabled='disabled' 
+                value={updatedRead.title}
+                onChange={handleChange}
+                // disabled='disabled' 
             />
         <br/>
         <label>author:</label>
             <input
                 type="text"
-                name="title"
-                value={book.author} 
-                disabled='disabled'
+                name="author"
+                value={updatedRead.author} 
+                onChange={handleChange}
+                // disabled='disabled'
             />
         <br/>
         <label>genre:</label>
             <input
                 type="text"
-                name="title"
-                value={book.genre}
-                disabled='disabled' 
+                name="genre"
+                value={updatedRead.genre}
+                onChange={handleChange}
+                // disabled='disabled' 
             />
         <br/>
         <label>read: </label>
@@ -59,15 +63,17 @@ const EditBookForm = ({ book, handleEditRead, isEditing, setIsEditing }) => {
                 value={updatedRead.read}
                 onChange={handleChange}
             />
-            <input type="submit" value="save" />
         <br/>
          <label>reader:</label>
             <input
                 type="text"
-                name="title"
-                value={book.reader} 
-                disabled='disabled'
+                name="reader"
+                value={updatedRead.reader} 
+                onChange={handleChange}
+                // disabled='disabled'
             />
+        <br/>
+            <input type="submit" value="save" />
            
     </form>
   )
