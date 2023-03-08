@@ -34,6 +34,7 @@ const Book = ({ book, onDeleteBook, onEditRead }) => {
             <button className="btn1" type="button" onClick={handleEditButton} >Edit</button>
             <button className="btn2" type="button" onClick={handleDeleteButton}>Delete</button>
           </ul>
+          <hr/>
         </div>        
       )}
     </div>
